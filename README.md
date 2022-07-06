@@ -1,0 +1,1 @@
+![Logo Teha](https://images-ext-1.discordapp.net/external/2sAd3R6AONWTeaYvBoEXwq7hjZW1ZA33xJ3d63TB1oA/https/cdn.discordapp.com/icons/991132514963959888/6d33a6ddcd95e9581c377716fe0e9f88.png)

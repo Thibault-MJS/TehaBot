@@ -1,0 +1,5 @@
+# Configuration
+
+node_modules/
+yarn.lock
+.env

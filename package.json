@@ -1,19 +1,16 @@
 {
   "name": "tehabot",
-  "version": "0.1.0",
-  "description": "Bot personnalisé pour Teha Corp",
+  "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/Thibault-MJS/TehaBot.git",
-  "author": "Thibault.M (JS Developer) <68784661+Thibault-MJS@users.noreply.github.com>",
+  "author": "Thibault MJS",
   "license": "MIT",
-  "scripts": {
-    "dev": "node -r dotenv/config src/index.js"
-  },
   "dependencies": {
-    "chalk": "^5.0.1",
     "discord.js": "^13.8.1",
     "dotenv": "^16.0.1",
-    "log-symbols": "^5.1.0",
-    "sequelize": "^6.21.2"
+    "sequelize": "^6.21.3",
+    "ts-node": "^10.9.1",
+    "tsc": "^2.0.4",
+    "typescript": "^4.7.4"
   }
 }

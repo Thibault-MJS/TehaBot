@@ -1,5 +1,5 @@
 # Configuration
 
 node_modules/
-yarn.lock
 .env
+yarn.lock

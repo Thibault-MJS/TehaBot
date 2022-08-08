@@ -7,6 +7,16 @@ export default class ReadyEvent extends Event {
     }
 
     run(bot: TehaClient) {
-        console.log("Client logged");
+        // Fetch guilds
+        let users = 0;
+        bot.guilds.cache.map(guild => users += guild.memberCount);
+        bot.user?.setPresence({
+            status: "idle",
+            activities: [{
+                name: `${users} utilisateur(s)`,
+                type: 'WATCHING'
+            }]
+        });
+        console.log("Teha's Bot successfuly connected");
     }
 }

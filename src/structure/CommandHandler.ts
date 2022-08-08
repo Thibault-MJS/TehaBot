@@ -18,7 +18,7 @@ export default class CommandHandler {
         readdirSync(this.commandDir).map(async (category: string) => {
             const commands = readdirSync(`${this.commandDir}${sep}${category}${sep}`).filter((files: string) => files.endsWith('.ts'));
             for (const file of commands) {
-                const command: Command = await import(`${this.commandDir}/${category}/${file}`);
+                const command: Command = new (await import(`${this.commandDir}/${category}/${file}`)).default;
                 this.saveCommand(command);
             }
         });
@@ -38,7 +38,7 @@ export default class CommandHandler {
     async useSingleFolder() {
         const commands = readdirSync(this.commandDir).filter((files: string) => files.endsWith('.ts'));
         for (const file of commands) {
-            const command: Command = await import(`${this.commandDir}/${file}`);
+            const command: Command = new (await import(`${this.commandDir}/${file}`)).default;
             this.saveCommand(command);
         }
     }

@@ -2,6 +2,7 @@ import {Client, Collection} from 'discord.js';
 import CommandHandler from './CommandHandler';
 import Command from './Command';
 import EventHandler from './EventHandler';
+import { Sequelize } from 'sequelize';
 
 export default class TehaClient extends Client {
     private clientToken: string;
@@ -10,6 +11,7 @@ export default class TehaClient extends Client {
     private eventHandler: EventHandler;
     public commands: Collection<string, Command>;
     public aliases: Collection<string, string>;
+    public db: Sequelize;
 
     constructor(token: string, prefix: string) {
         super({ intents: 3243773, partials: ["CHANNEL", "MESSAGE", "USER"] });
@@ -19,6 +21,13 @@ export default class TehaClient extends Client {
         this.eventHandler = new EventHandler(__dirname + '/../events/', this);
         this.commands = this.commandHandler.commandCollection;
         this.aliases = this.commandHandler.aliasesCollection;
+        this.db = new Sequelize({
+            username: "root",
+            password: "",
+            host: "localhost",
+            database: "tehabot",
+            dialect: "mysql"
+        });
     }
 
     initialize() {

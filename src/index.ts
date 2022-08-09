@@ -1,4 +1,4 @@
-import TehaClient from "./structure/TehaClient";
+import AvaClient from "./structure/AvaClient";
 
-const bot = new TehaClient(process.env.TOKEN as string, '?');
+const bot = new AvaClient(process.env.TOKEN as string, '?');
 bot.initialize();

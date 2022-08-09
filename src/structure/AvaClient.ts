@@ -4,7 +4,7 @@ import Command from './Command';
 import EventHandler from './EventHandler';
 import { Sequelize } from 'sequelize';
 
-export default class TehaClient extends Client {
+export default class AvaClient extends Client {
     private clientToken: string;
     public prefix: string;
     private commandHandler: CommandHandler;

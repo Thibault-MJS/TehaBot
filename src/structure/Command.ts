@@ -1,6 +1,6 @@
 import {Message} from "discord.js";
 import {CommandOptions} from "../types/CommandOptions";
-import TehaClient from "./TehaClient";
+import AvaClient from "./AvaClient";
 
 export default abstract class Command {
     public name: string;
@@ -11,5 +11,5 @@ export default abstract class Command {
         this.options = options;
     }
 
-    abstract run(bot: TehaClient, message: Message, args: string[]): void;
+    abstract run(bot: AvaClient, message: Message, args: string[]): void;
 }

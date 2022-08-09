@@ -1,14 +1,15 @@
 import { EventOptions } from "../types/EventOptions";
-import TehaClient from "./TehaClient";
+import AvaClient from "./AvaClient";
+import { ClientEvents } from "discord.js";
 
 export default abstract class Event {
-    public name: string;
+    public name: keyof ClientEvents;
     public options: EventOptions;
 
-    constructor(name: string, options: EventOptions) {
+    constructor(name: keyof ClientEvents, options: EventOptions) {
         this.name = name;
         this.options = options;
     }
 
-    abstract run(bot: TehaClient, ...args: any[]): void;
+    abstract run(bot: AvaClient, ...args: any[]): void;
 }

@@ -1,13 +1,13 @@
 import { readdirSync } from 'fs';
 import { sep } from 'path';
 import Event from './Event';
-import TehaClient from './TehaClient';
+import AvaClient from './AvaClient';
 
 export default class EventHandler {
     public eventDir: string;
-    public bot: TehaClient;
+    public bot: AvaClient;
     
-    constructor(eventDir: string, bot: TehaClient) {
+    constructor(eventDir: string, bot: AvaClient) {
         this.eventDir = eventDir;
         this.bot = bot;
     }
@@ -23,7 +23,6 @@ export default class EventHandler {
     }
 
     private launchEvent(event: any) {
-        console.log(event);
         if (event.options?.once) {
             this.bot.once(event.name, event.run.bind(null, this.bot));
         } else {

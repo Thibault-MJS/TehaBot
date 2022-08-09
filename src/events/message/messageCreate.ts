@@ -20,5 +20,7 @@ export default class MessageCreateEvent extends Event {
         let cmd;
         if (bot.commands.has(command as string)) cmd = bot.commands.get(command as string)
         else if (bot.aliases.has(command as string)) cmd = bot.commands.get(bot.aliases.get(command as string) as string);
+
+        if (cmd) cmd.run(bot, message, args);
     }
 }

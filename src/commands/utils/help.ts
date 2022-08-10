@@ -1,6 +1,7 @@
 import { Message } from "discord.js";
 import AvaClient from "../../structure/AvaClient";
 import Command from "../../structure/Command";
+import ResponseBuilder from "../../utils/ResponseBuilder";
 
 export default class HelpCommand extends Command {
     constructor() {

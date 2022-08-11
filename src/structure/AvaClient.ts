@@ -3,6 +3,7 @@ import CommandHandler from './CommandHandler';
 import Command from './Command';
 import EventHandler from './EventHandler';
 import { Sequelize } from 'sequelize';
+import { CommandCooldown } from '../types/CommandOptions';
 
 export default class AvaClient extends Client {
     private clientToken: string;
@@ -12,6 +13,7 @@ export default class AvaClient extends Client {
     public commands: Collection<string, Command>;
     public aliases: Collection<string, string>;
     public db: Sequelize;
+    public cooldowns: CommandCooldown[];
 
     constructor(token: string, prefix: string) {
         super({ intents: 3243773, partials: ["CHANNEL", "MESSAGE", "USER"] });
@@ -28,6 +30,7 @@ export default class AvaClient extends Client {
             database: process.env.DB_NAME,
             dialect: "mysql"
         });
+        this.cooldowns = [];
     }
 
     initialize() {
